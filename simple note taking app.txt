@@ -1,0 +1,61 @@
+def display_menu():
+        print("\n=== Simple Note-Taking App ===")
+        print("1. Add Note")
+        print ("2. View Note")
+        print("3. Delete Note")
+        print("Exit.")
+while True:
+    display_menu()
+    choice = input("Choose an option (1-4): ")
+
+if choice == "1":
+      print("1. Add Note")
+
+elif choice == "2":
+      print("2. View Note")
+
+elif choice == "3":
+      print("3. Delete Note")
+
+elif choice == "4":
+      print("4. Bye.")
+
+else:
+      print("Invalid Choice. Select correct option between 1 and 4.")  
+
+# Let's store our notes
+notes = []
+def add_note():
+      note = imput("Enter your note here:")
+      note.append(notes)
+      print("Note added successfully!")
+
+if choice == '1':
+      add_note()
+
+ # Let's view our notes
+def view_notes():
+      if not notes:
+            print("No notes yet!")
+      else:
+            print("\n=== Your Notes ===")
+            for idx, note in enumerate(notes, start=1):
+                  print(f"{idx}. {note}")
+if choice == '2':
+      view_notes()
+
+# Let's delete our notes
+def delete_note():
+    view_notes()  # Show the current notes first
+    if notes:
+        try:
+            note_number = int(input("Enter the number of the note to delete: "))
+            if 1 <= note_number <= len(notes):
+                removed_note = notes.pop(note_number - 1)
+                print(f"Deleted note: {removed_note}")
+            else:
+                print("Invalid note number.")
+        except ValueError:
+            print("Please enter a valid number.")
+            if choice == '3':
+                delete_note()
